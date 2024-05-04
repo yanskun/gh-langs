@@ -3,7 +3,6 @@ package main
 import (
 	"bytes"
 	"encoding/json"
-	"flag"
 	"fmt"
 	"log"
 	"net/http"
@@ -12,17 +11,28 @@ import (
 	"sort"
 	"strings"
 	"sync"
+	"time"
 
 	"github.com/cli/go-gh/v2/pkg/api"
 	"github.com/google/go-github/v61/github"
 	"github.com/jedib0t/go-pretty/table"
+	"github.com/spf13/pflag"
 	"golang.org/x/text/message"
 )
 
 func main() {
-	flag.Parse()
+	var filterVal float64
+	var helpFlag bool
+	pflag.BoolVarP(&helpFlag, "help", "h", false, "shows Task usage")
+	pflag.Float64VarP(&filterVal, "filter", "f", 1.0, "a float used to filter results")
+	pflag.Parse()
 
-	account := flag.Arg(0)
+	if helpFlag {
+		pflag.Usage()
+		return
+	}
+
+	account := pflag.Arg(0)
 	if account == "" {
 		account, _ = getGitHubUsername()
 	}
@@ -37,6 +47,18 @@ func main() {
 		return
 	}
 
+	var filter time.Time
+	if filterVal != 0.0 {
+		totalDays := int(filterVal * 365)
+		years := -totalDays / 365
+		remainingDays := totalDays % 365
+		months := -remainingDays / 30
+		days := -remainingDays % 30
+		filter = time.Now().AddDate(years, months, days)
+
+		repos = filterRepositories(repos, filter)
+	}
+
 	results, err := getLanguages(client, repos)
 	if err != nil {
 		return
@@ -45,7 +67,10 @@ func main() {
 	languages := sumLanguages(results)
 
 	printTable(languages)
-	fmt.Println(fmt.Sprintf("https:github.com/%s has %d repositories", account, len(repos)))
+	fmt.Printf("https:github.com/%s has %d repositories\n", account, len(repos))
+	if filterVal != 0.0 {
+		fmt.Printf("Last updated after %s\n", filter.Format("2006-01-02"))
+	}
 }
 
 func getGitHubUsername() (string, error) {
@@ -117,6 +142,16 @@ func getRepositories(client *api.RESTClient, account string) ([]github.Repositor
 		page++
 	}
 	return repos, nil
+}
+
+func filterRepositories(repos []github.Repository, filter time.Time) []github.Repository {
+	var results []github.Repository
+	for _, repo := range repos {
+		if repo.GetUpdatedAt().After(filter) {
+			results = append(results, repo)
+		}
+	}
+	return results
 }
 
 type (
