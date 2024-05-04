@@ -20,24 +20,11 @@ import (
 )
 
 func main() {
-	org := flag.String("org", "", "organization name")
-	user := flag.String("user", "", "user name")
-	flag.StringVar(org, "o", "", "organization name (shorthand)")
-	flag.StringVar(user, "u", "", "user name (shorthand)")
 	flag.Parse()
 
-	var account string
-	if *org != "" {
-		account = fmt.Sprintf("orgs/%s", *org)
-	} else if *user != "" {
-		account = fmt.Sprintf("users/%s", *user)
-	} else {
-		username, err := getGitHubUsername()
-		if err != nil {
-			log.Fatal(err)
-			return
-		}
-		account = fmt.Sprintf("users/%s", username)
+	account := flag.Arg(0)
+	if account == "" {
+		account, _ = getGitHubUsername()
 	}
 
 	client, err := api.DefaultRESTClient()
@@ -78,9 +65,8 @@ func getGitHubUsername() (string, error) {
 func getRepositories(client *api.RESTClient, account string) ([]github.Repository, error) {
 	var repos []github.Repository
 	page := 1
-
 	for {
-		endpoint := fmt.Sprintf("%s/repos?sort=updated&per_page=100&page=%d", account, page)
+		endpoint := fmt.Sprintf("%s?sort=updated&per_page=100&page=%d", fmt.Sprintf("users/%s/repos", account), page)
 		response, err := client.Request(http.MethodGet, endpoint, nil)
 		if err != nil {
 			return nil, err
