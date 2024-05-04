@@ -1,6 +1,6 @@
 module github.com/yanskun/gh-langs
 
-go 1.22
+go 1.18
 
 require (
 	github.com/cli/go-gh/v2 v2.9.0
