@@ -16,7 +16,7 @@ import (
 	"github.com/cli/go-gh/v2/pkg/api"
 	"github.com/google/go-github/v61/github"
 	"github.com/jedib0t/go-pretty/table"
-	"github.com/spf13/pflag"
+	"github.com/yanskun/pflag"
 	"golang.org/x/text/message"
 )
 
@@ -28,6 +28,8 @@ func main() {
 	pflag.Parse()
 
 	if helpFlag {
+		fmt.Println("Usage: task [options] [account]")
+		fmt.Println("Options:")
 		pflag.Usage()
 		return
 	}
