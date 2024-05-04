@@ -14,6 +14,7 @@ import (
 	"time"
 
 	"github.com/cli/go-gh/v2/pkg/api"
+	"github.com/fatih/color"
 	"github.com/google/go-github/v61/github"
 	"github.com/jedib0t/go-pretty/table"
 	"github.com/yanskun/pflag"
@@ -23,13 +24,17 @@ import (
 func main() {
 	var filterVal float64
 	var helpFlag bool
-	pflag.BoolVarP(&helpFlag, "help", "h", false, "shows Task usage")
-	pflag.Float64VarP(&filterVal, "filter", "f", 1.0, "a float used to filter results")
+	pflag.BoolVarP(&helpFlag, "help", "h", false, "Show help for command")
+	pflag.Float64VarP(&filterVal, "filter", "f", 1.0, "Filter past by float value in years (e.g. 0.5) (default 1.0)")
 	pflag.Parse()
 
 	if helpFlag {
-		fmt.Println("Usage: task [options] [account]")
-		fmt.Println("Options:")
+		b := color.New(color.Bold)
+		b.Println("\nUSAGE")
+		fmt.Println("  gh langs <command> [options]\n")
+		b.Println("COMMANDS")
+		fmt.Println("  account:  Get languages used by a GitHub user or organization\n")
+		b.Println("OPTIONS")
 		pflag.Usage()
 		return
 	}
