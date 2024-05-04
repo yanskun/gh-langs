@@ -24,4 +24,25 @@ gh langs octocat
 | JavaScript | 48      |
 +------------+---------+
 https:github.com/octocat has 8 repositories
+Last updated after 2023-05-04
+```
+
+### Options
+```
+-f, --filter float   a float used to filter results (default 1)
+```
+
+```shell
+gh langs octocat -f 0.5
++------------+---------+
+| LANGUAGE   | LINES   |
++------------+---------+
+| Ruby       | 204,865 |
+| CSS        | 14,950  |
+| HTML       | 4,338   |
+| Shell      | 910     |
+| JavaScript | 48      |
++------------+---------+
+https:github.com/octocat has 8 repositories
+Last updated after 2023-11-02
 ```
