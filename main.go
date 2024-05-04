@@ -125,7 +125,7 @@ func getRepositories(client *api.RESTClient, account string) ([]github.Repositor
 	endpoint := fmt.Sprintf("%s/%s/repos", t, account)
 
 	for {
-		url := fmt.Sprintf("%s?sort=updated&per_page=100&page=%d", endpoint, page)
+		url := fmt.Sprintf("%s?per_page=100&page=%d", endpoint, page)
 		response, err := client.Request(http.MethodGet, url, nil)
 		if err != nil {
 			fmt.Printf("%s is not a valid GitHub username\n", account)
