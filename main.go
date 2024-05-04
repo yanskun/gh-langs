@@ -29,19 +29,16 @@ func main() {
 
 	client, err := api.DefaultRESTClient()
 	if err != nil {
-		log.Fatal(err)
 		return
 	}
 
 	repos, err := getRepositories(client, account)
 	if err != nil {
-		log.Fatal(err)
 		return
 	}
 
 	results, err := getLanguages(client, repos)
 	if err != nil {
-		log.Fatal(err)
 		return
 	}
 
@@ -69,6 +66,7 @@ func getRepositories(client *api.RESTClient, account string) ([]github.Repositor
 		endpoint := fmt.Sprintf("%s?sort=updated&per_page=100&page=%d", fmt.Sprintf("users/%s/repos", account), page)
 		response, err := client.Request(http.MethodGet, endpoint, nil)
 		if err != nil {
+			fmt.Printf("%s is not a valid GitHub username\n", account)
 			return nil, err
 		}
 
