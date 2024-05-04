@@ -11,7 +11,7 @@ gh extension install yanskun/gh-langs
 ## Usage
 ```shell
 # login user
-gh langas
+gh langs
 # arg
 gh langs octocat
 +------------+---------+
