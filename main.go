@@ -59,12 +59,42 @@ func getGitHubUsername() (string, error) {
 	return strings.TrimSpace(out.String()), nil
 }
 
+func findAccountType(client *api.RESTClient, account string) (string, error) {
+	response, err := client.Request(http.MethodGet, fmt.Sprintf("users/%s", account), nil)
+	if err != nil {
+		return "", err
+	}
+
+	decoder := json.NewDecoder(response.Body)
+	data := github.User{}
+	if err := decoder.Decode(&data); err != nil {
+		return "", err
+	}
+	if err := response.Body.Close(); err != nil {
+		return "", err
+	}
+
+	if data.GetType() == "User" {
+		return "users", nil
+	} else if data.GetType() == "Organization" {
+		return "orgs", nil
+	}
+	return "", fmt.Errorf("Unknown account type: %s", data.GetType())
+}
+
 func getRepositories(client *api.RESTClient, account string) ([]github.Repository, error) {
 	var repos []github.Repository
 	page := 1
+
+	t, err := findAccountType(client, account)
+	if err != nil {
+		return nil, err
+	}
+	endpoint := fmt.Sprintf("%s/%s/repos", t, account)
+
 	for {
-		endpoint := fmt.Sprintf("%s?sort=updated&per_page=100&page=%d", fmt.Sprintf("users/%s/repos", account), page)
-		response, err := client.Request(http.MethodGet, endpoint, nil)
+		url := fmt.Sprintf("%s?sort=updated&per_page=100&page=%d", endpoint, page)
+		response, err := client.Request(http.MethodGet, url, nil)
 		if err != nil {
 			fmt.Printf("%s is not a valid GitHub username\n", account)
 			return nil, err
