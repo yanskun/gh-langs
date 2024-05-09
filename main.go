@@ -17,6 +17,7 @@ import (
 	"github.com/fatih/color"
 	"github.com/google/go-github/v61/github"
 	"github.com/jedib0t/go-pretty/table"
+	"github.com/jedib0t/go-pretty/text"
 	"github.com/yanskun/pflag"
 	"golang.org/x/text/message"
 )
@@ -235,6 +236,17 @@ func printTable(languages Languages) {
 	// Sort slice in descending order by Value
 	sort.Slice(pairs, func(i, j int) bool {
 		return pairs[i].Value > pairs[j].Value
+	})
+
+	t.SetColumnConfigs([]table.ColumnConfig{
+		{
+			Name:  "Language",
+			Align: text.AlignLeft,
+		},
+		{
+			Name:  "Lines",
+			Align: text.AlignRight,
+		},
 	})
 
 	// Append rows in sorted order
