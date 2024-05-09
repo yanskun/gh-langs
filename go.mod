@@ -10,7 +10,7 @@ require (
 	github.com/google/go-github/v61 v61.0.1-0.20240507184450-81ff3c9e8b0c
 	github.com/jedib0t/go-pretty v4.3.0+incompatible
 	github.com/yanskun/pflag v1.0.0
-	golang.org/x/text v0.14.0
+	golang.org/x/text v0.15.0
 )
 
 require (
