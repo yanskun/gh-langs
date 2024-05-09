@@ -246,14 +246,23 @@ func printTable(languages Languages) {
 		{
 			Name:  "Lines",
 			Align: text.AlignRight,
+			Transformer: func(val interface{}) string {
+				return p.Sprintf("%d", val)
+			},
+			TransformerFooter: func(val interface{}) string {
+				return p.Sprintf("%d", val)
+			},
 		},
 	})
 
 	// Append rows in sorted order
+	sumLines := 0
 	for _, pair := range pairs {
-		num := p.Sprintf("%d", pair.Value)
-		t.AppendRow(table.Row{pair.Key, num})
+		sumLines += pair.Value
+		t.AppendRow(table.Row{pair.Key, pair.Value})
 	}
+
+	t.AppendFooter(table.Row{"Total", sumLines})
 	t.Render()
 }
 
