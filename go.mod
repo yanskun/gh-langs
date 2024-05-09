@@ -1,11 +1,15 @@
 module github.com/yanskun/gh-langs
 
-go 1.18
+go 1.21
+
+toolchain go1.22.3
 
 require (
 	github.com/cli/go-gh/v2 v2.9.0
-	github.com/google/go-github/v61 v61.0.1-0.20240501183028-faa0e7ceab73
+	github.com/fatih/color v1.16.0
+	github.com/google/go-github/v61 v61.0.1-0.20240507184450-81ff3c9e8b0c
 	github.com/jedib0t/go-pretty v4.3.0+incompatible
+	github.com/yanskun/pflag v1.0.0
 	golang.org/x/text v0.14.0
 )
 
@@ -14,7 +18,6 @@ require (
 	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
 	github.com/cli/safeexec v1.0.0 // indirect
 	github.com/cli/shurcooL-graphql v0.0.4 // indirect
-	github.com/fatih/color v1.16.0 // indirect
 	github.com/go-openapi/errors v0.22.0 // indirect
 	github.com/go-openapi/strfmt v0.23.0 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
@@ -29,7 +32,6 @@ require (
 	github.com/oklog/ulid v1.3.1 // indirect
 	github.com/rivo/uniseg v0.4.7 // indirect
 	github.com/thlib/go-timezone-local v0.0.0-20210907160436-ef149e42d28e // indirect
-	github.com/yanskun/pflag v1.0.0 // indirect
 	go.mongodb.org/mongo-driver v1.14.0 // indirect
 	golang.org/x/sys v0.19.0 // indirect
 	golang.org/x/term v0.13.0 // indirect

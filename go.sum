@@ -19,6 +19,8 @@ github.com/google/go-cmp v0.5.2/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/
 github.com/google/go-cmp v0.6.0 h1:ofyhxvXcZhMsU5ulbFiLKl/XBFqE1GSq7atu8tAmTRI=
 github.com/google/go-github/v61 v61.0.1-0.20240501183028-faa0e7ceab73 h1:smFL3TWVxdNIdDs4tLA5m0331XTm0v8Y7CXZQefxP2I=
 github.com/google/go-github/v61 v61.0.1-0.20240501183028-faa0e7ceab73/go.mod h1:0WR+KmsWX75G2EbpyGsGmradjo3IiciuI4BmdVCobQY=
+github.com/google/go-github/v61 v61.0.1-0.20240507184450-81ff3c9e8b0c h1:45aHUQF6rd6x5wblpQYXo10suFDhxtLSX/S2okEYL9o=
+github.com/google/go-github/v61 v61.0.1-0.20240507184450-81ff3c9e8b0c/go.mod h1:0WR+KmsWX75G2EbpyGsGmradjo3IiciuI4BmdVCobQY=
 github.com/google/go-querystring v1.1.0 h1:AnCroh3fv4ZBgVIf1Iwtovgjaw/GiKJo8M8yD/fhyJ8=
 github.com/google/go-querystring v1.1.0/go.mod h1:Kcdr2DB4koayq7X8pmAG4sNG59So17icRSOU623lUBU=
 github.com/google/uuid v1.6.0 h1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=
