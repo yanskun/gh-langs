@@ -26,7 +26,7 @@ func main() {
 	var filterVal float64
 	var helpFlag bool
 	pflag.BoolVarP(&helpFlag, "help", "h", false, "Show help for command")
-	pflag.Float64VarP(&filterVal, "filter", "f", 1.0, "Filter past by float value in years (e.g. 0.5) (default 1.0)")
+	pflag.Float64VarP(&filterVal, "filter", "f", 1.0, "Filter past by float value in years (e.g. 0.5)")
 	pflag.Parse()
 
 	if helpFlag {
