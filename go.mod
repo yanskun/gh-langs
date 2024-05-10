@@ -14,6 +14,7 @@ require (
 require (
 	github.com/asaskevich/govalidator v0.0.0-20230301143203-a9d515a09cc2 // indirect
 	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
+	github.com/briandowns/spinner v1.23.0 // indirect
 	github.com/cli/safeexec v1.0.0 // indirect
 	github.com/cli/shurcooL-graphql v0.0.4 // indirect
 	github.com/go-openapi/errors v0.22.0 // indirect

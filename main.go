@@ -13,6 +13,7 @@ import (
 	"sync"
 	"time"
 
+	"github.com/briandowns/spinner"
 	"github.com/cli/go-gh/v2/pkg/api"
 	"github.com/fatih/color"
 	"github.com/google/go-github/v61/github"
@@ -30,15 +31,12 @@ func main() {
 	pflag.Parse()
 
 	if helpFlag {
-		b := color.New(color.Bold)
-		b.Println("\nUSAGE")
-		fmt.Println("  gh langs <command> [options]\n")
-		b.Println("COMMANDS")
-		fmt.Println("  account:  Get languages used by a GitHub user or organization\n")
-		b.Println("OPTIONS")
-		pflag.Usage()
+		printHelp()
 		return
 	}
+
+	s := spinner.New(spinner.CharSets[11], 100*time.Millisecond)
+	s.Start()
 
 	account := pflag.Arg(0)
 	if account == "" {
@@ -57,13 +55,7 @@ func main() {
 
 	var filter time.Time
 	if filterVal != 0.0 {
-		totalDays := int(filterVal * 365)
-		years := -totalDays / 365
-		remainingDays := totalDays % 365
-		months := -remainingDays / 30
-		days := -remainingDays % 30
-		filter = time.Now().AddDate(years, months, days)
-
+		filter = computeFilter(filterVal)
 		repos = filterRepositories(repos, filter)
 	}
 
@@ -74,11 +66,35 @@ func main() {
 
 	languages := sumLanguages(results)
 
+	s.Stop()
+
 	printTable(languages)
 	fmt.Printf("https:github.com/%s has %d repositories\n", account, len(repos))
 	if filterVal != 0.0 {
 		fmt.Printf("Last updated after %s\n", filter.Format("2006-01-02"))
 	}
+}
+
+func printHelp() {
+	b := color.New(color.Bold)
+	b.Println("\nUSAGE")
+	fmt.Println("  gh langs <command> [options]\n")
+	b.Println("COMMANDS")
+	fmt.Println("  account:  Get languages used by a GitHub user or organization\n")
+	b.Println("OPTIONS")
+	pflag.Usage()
+	return
+}
+
+func computeFilter(filterVal float64) time.Time {
+	var filter time.Time
+	totalDays := int(filterVal * 365)
+	years := -totalDays / 365
+	remainingDays := totalDays % 365
+	months := -remainingDays / 30
+	days := -remainingDays % 30
+	filter = time.Now().AddDate(years, months, days)
+	return filter
 }
 
 func getGitHubUsername() (string, error) {
