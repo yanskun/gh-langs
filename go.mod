@@ -1,11 +1,15 @@
 module github.com/yanskun/gh-langs
 
-go 1.18
+go 1.21
+
+toolchain go1.22.3
 
 require (
+	github.com/briandowns/spinner v1.23.0
 	github.com/cli/go-gh/v2 v2.9.0
 	github.com/fatih/color v1.16.0
-	github.com/google/go-github/v61 v61.0.1-0.20240507184450-81ff3c9e8b0c
+	github.com/google/go-github/v61 v61.0.0
+	github.com/google/go-github/v62 v62.0.0
 	github.com/jedib0t/go-pretty v4.3.0+incompatible
 	github.com/yanskun/pflag v1.0.0
 	golang.org/x/text v0.15.0
@@ -14,7 +18,6 @@ require (
 require (
 	github.com/asaskevich/govalidator v0.0.0-20230301143203-a9d515a09cc2 // indirect
 	github.com/aymanbagabas/go-osc52/v2 v2.0.1 // indirect
-	github.com/briandowns/spinner v1.23.0 // indirect
 	github.com/cli/safeexec v1.0.0 // indirect
 	github.com/cli/shurcooL-graphql v0.0.4 // indirect
 	github.com/go-openapi/errors v0.22.0 // indirect
