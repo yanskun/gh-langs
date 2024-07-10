@@ -30,6 +30,7 @@ github.com/google/go-github/v61 v61.0.1-0.20240501183028-faa0e7ceab73/go.mod h1:
 github.com/google/go-github/v61 v61.0.1-0.20240507184450-81ff3c9e8b0c h1:45aHUQF6rd6x5wblpQYXo10suFDhxtLSX/S2okEYL9o=
 github.com/google/go-github/v61 v61.0.1-0.20240507184450-81ff3c9e8b0c/go.mod h1:0WR+KmsWX75G2EbpyGsGmradjo3IiciuI4BmdVCobQY=
 github.com/google/go-github/v62 v62.0.0/go.mod h1:EMxeUqGJq2xRu9DYBMwel/mr7kZrzUOfQmmpYrZn2a4=
+github.com/google/go-github/v63 v63.0.0/go.mod h1:IqbcrgUmIcEaioWrGYei/09o+ge5vhffGOcxrO0AfmA=
 github.com/google/go-querystring v1.1.0 h1:AnCroh3fv4ZBgVIf1Iwtovgjaw/GiKJo8M8yD/fhyJ8=
 github.com/google/go-querystring v1.1.0/go.mod h1:Kcdr2DB4koayq7X8pmAG4sNG59So17icRSOU623lUBU=
 github.com/google/uuid v1.6.0 h1:NIvaJDMOsjHA8n1jAhLSgzrAzy1Hgr+hNrb57e+94F0=

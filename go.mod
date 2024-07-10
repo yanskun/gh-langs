@@ -8,8 +8,8 @@ require (
 	github.com/briandowns/spinner v1.23.1
 	github.com/cli/go-gh/v2 v2.9.0
 	github.com/fatih/color v1.17.0
-	github.com/google/go-github/v62 v62.0.0
-	github.com/google/go-github/v62 v62.0.0
+	github.com/google/go-github/v61 v61.0.0
+	github.com/google/go-github/v63 v63.0.0
 	github.com/jedib0t/go-pretty v4.3.0+incompatible
 	github.com/yanskun/pflag v1.0.0
 	golang.org/x/text v0.16.0
