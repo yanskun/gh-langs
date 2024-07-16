@@ -9,7 +9,6 @@ require (
 	github.com/cli/go-gh/v2 v2.9.0
 	github.com/fatih/color v1.17.0
 	github.com/google/go-github/v63 v63.0.0
-	github.com/google/go-github/v63 v63.0.0
 	github.com/jedib0t/go-pretty v4.3.0+incompatible
 	github.com/yanskun/pflag v1.0.0
 	golang.org/x/text v0.16.0
@@ -22,6 +21,7 @@ require (
 	github.com/cli/shurcooL-graphql v0.0.4 // indirect
 	github.com/go-openapi/errors v0.22.0 // indirect
 	github.com/go-openapi/strfmt v0.23.0 // indirect
+	github.com/google/go-github/v61 v61.0.0 // indirect
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/google/uuid v1.6.0 // indirect
 	github.com/henvic/httpretty v0.0.6 // indirect
