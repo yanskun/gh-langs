@@ -11,7 +11,7 @@ require (
 	github.com/google/go-github/v61 v61.0.0
 	github.com/jedib0t/go-pretty v4.3.0+incompatible
 	github.com/yanskun/pflag v1.0.0
-	golang.org/x/text v0.16.0
+	golang.org/x/text v0.17.0
 )
 
 require (
