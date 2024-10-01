@@ -2,7 +2,7 @@ module github.com/yanskun/gh-langs
 
 go 1.21
 
-toolchain go1.23.1
+toolchain go1.23.2
 
 require (
 	github.com/briandowns/spinner v1.23.1
