@@ -6,13 +6,13 @@ toolchain go1.23.1
 
 require (
 	github.com/briandowns/spinner v1.23.1
-	github.com/cli/go-gh/v2 v2.10.0
+	github.com/cli/go-gh/v2 v2.11.2
 	github.com/fatih/color v1.17.0
 	github.com/google/go-github/v61 v61.0.0
 	github.com/google/go-github/v65 v65.0.0
 	github.com/jedib0t/go-pretty v4.3.0+incompatible
 	github.com/yanskun/pflag v1.0.0
-	golang.org/x/text v0.18.0
+	golang.org/x/text v0.21.0
 )
 
 require (
@@ -36,7 +36,7 @@ require (
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/thlib/go-timezone-local v0.0.0-20210907160436-ef149e42d28e // indirect
 	go.mongodb.org/mongo-driver v1.14.0 // indirect
-	golang.org/x/sys v0.19.0 // indirect
-	golang.org/x/term v0.13.0 // indirect
+	golang.org/x/sys v0.28.0 // indirect
+	golang.org/x/term v0.27.0 // indirect
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 )
