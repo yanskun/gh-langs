@@ -12,7 +12,7 @@ require (
 	github.com/google/go-github/v65 v65.0.0
 	github.com/jedib0t/go-pretty v4.3.0+incompatible
 	github.com/yanskun/pflag v1.0.0
-	golang.org/x/text v0.18.0
+	golang.org/x/text v0.22.0
 )
 
 require (
