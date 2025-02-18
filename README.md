@@ -46,3 +46,5 @@ gh langs octocat -f 0.5
 https:github.com/octocat has 8 repositories
 Last updated after 2023-11-02
 ```
+
+https://speakerdeck.com/yanskun/tonoyan-yu-woshi-tuterukadiao-herufang-fa
